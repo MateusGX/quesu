@@ -3,11 +3,11 @@
 A personal notebook made in Electron using React and AFFiNE's BlockSuite, a project still under development.
 
 <br>
-<img src="https://github.com/MateusGX/quesu/blob/main/assets/readme/02_dark.png" width="18%"></img>
-<img src="https://github.com/MateusGX/quesu/blob/main/assets/readme/04_light.png" width="18%"></img>
-<img src="https://github.com/MateusGX/quesu/blob/main/assets/readme/06_dark.png" width="18%"></img>
-<img src="https://github.com/MateusGX/quesu/blob/main/assets/readme/07_dark.png" width="18%"></img>
-<img src="https://github.com/MateusGX/quesu/blob/main/assets/readme/08_dark.png" width="18%"></img>
+<img src="https://github.com/MateusGX/quesu/blob/main/assets/readme/02_dark.png" width="18%"></img><img 
+src="https://github.com/MateusGX/quesu/blob/main/assets/readme/04_light.png" width="18%"></img><img 
+src="https://github.com/MateusGX/quesu/blob/main/assets/readme/06_dark.png" width="18%"></img><img 
+src="https://github.com/MateusGX/quesu/blob/main/assets/readme/07_dark.png" width="18%"></img><img 
+src="https://github.com/MateusGX/quesu/blob/main/assets/readme/08_dark.png" width="18%"></img>
 
 <br>
 
