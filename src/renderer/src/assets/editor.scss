@@ -1,0 +1,79 @@
+.ce-toolbox__button,
+.ce-toolbar__settings-btn,
+.ce-toolbar__plus {
+  color: hsl(var(--primary));
+}
+
+.ce-toolbox__button:hover,
+.ce-toolbar__settings-btn:hover,
+.ce-toolbar__plus:hover {
+  background-color: hsl(var(--primary));
+  color: hsl(var(--background));
+}
+
+.ce-inline-toolbar {
+  background-color: hsl(var(--background));
+  border-color: hsl(var(--border));
+}
+
+.ce-inline-toolbar__buttons {
+  background-color: hsl(var(--background));
+  padding: 4px 0;
+  gap: 4px;
+}
+
+.ce-inline-toolbar__buttons > button {
+  padding: 2px;
+  border-radius: 2px;
+}
+
+.ce-inline-toolbar__buttons > button:hover {
+  background-color: hsl(var(--primary));
+  color: hsl(var(--background));
+}
+
+.ct__content {
+  background-color: hsl(var(--primary));
+  color: hsl(var(--background));
+  border-radius: 6px;
+}
+
+.ct:before {
+  background-color: hsl(var(--primary));
+}
+
+.ct:after {
+  background-color: hsl(var(--primary));
+}
+
+.ce-toolbar__plus-shortcut {
+  color: hsl(var(--secondary));
+}
+
+.cdx-block {
+  color: hsl(var(--primary));
+}
+
+.ce-stub {
+  background-color: hsl(var(--primary));
+  color: hsl(var(--background));
+  user-select: none;
+}
+
+.ce-block--selected .ce-block__content,
+::selection {
+  background-color: hsl(var(--input));
+}
+::selection {
+  color: hsl(var(--background));
+}
+
+// .ce-popover {
+//   background-color: hsl(var(--primary));
+//   border-color: hsl(var(--border));
+// }
+
+// .cdx-search-field {
+//   background-color: hsl(var(--input));
+//   color: hsl(var(--background));
+// }
