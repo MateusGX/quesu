@@ -40,7 +40,7 @@ const CommandProviderContext = createContext<CommandProviderState>(initialState)
 export function CommandProvider({ children, ...props }: CommandProviderProps) {
   const [openMain, setOpenMain] = React.useState(false)
   const [openPages, setOpenPages] = React.useState(false)
-  const { toggleTheme } = useTheme()
+  const { toggleTheme, theme } = useTheme()
   React.useEffect(() => {
     const down = (e: KeyboardEvent) => {
       if (e.key === 'k' && (e.metaKey || e.ctrlKey)) {
@@ -68,6 +68,17 @@ export function CommandProvider({ children, ...props }: CommandProviderProps) {
         <CommandInput placeholder="Type a command or search..." />
         <CommandList>
           <CommandEmpty>No results found.</CommandEmpty>
+          <CommandGroup heading="Quick Actions">
+            <CommandItem
+              onSelect={() => {
+                toggleTheme()
+              }}
+            >
+              <Files className="mr-2 h-4 w-4" />
+              <span>Change theme to {theme === 'dark' ? 'light' : 'dark'}</span>
+              <CommandShortcut>⌘T</CommandShortcut>
+            </CommandItem>
+          </CommandGroup>
           <CommandGroup heading="Pages Actions">
             <CommandItem
               onSelect={() => {

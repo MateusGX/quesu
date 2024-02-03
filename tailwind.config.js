@@ -68,5 +68,12 @@ module.exports = {
       }
     }
   },
-  plugins: [require('tailwindcss-all'), require('tailwindcss-animate')]
+  plugins: [
+    require('tailwind-scrollbar'),
+    require('@tailwindcss/typography')({
+      className: 'tw-typography'
+    }),
+    require('tailwindcss-all'),
+    require('tailwindcss-animate')
+  ]
 }

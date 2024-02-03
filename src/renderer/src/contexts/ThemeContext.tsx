@@ -28,6 +28,7 @@ export function ThemeProvider({
   storageKey = 'ui-theme',
   ...props
 }: ThemeProviderProps) {
+  const [currentTheme, setCurrentTheme] = useState<Theme>('system' as Theme)
   const [theme, setTheme] = useState<Theme>(
     () => (localStorage.getItem(storageKey) as Theme) || defaultTheme
   )
@@ -41,16 +42,16 @@ export function ThemeProvider({
       const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches
         ? 'dark'
         : 'light'
-
+      setCurrentTheme(systemTheme)
       root.classList.add(systemTheme)
       return
     }
-
+    setCurrentTheme(theme)
     root.classList.add(theme)
   }, [theme])
 
   const value = {
-    theme,
+    theme: currentTheme,
     setTheme: (theme: Theme) => {
       localStorage.setItem(storageKey, theme)
       setTheme(theme)
