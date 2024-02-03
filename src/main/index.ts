@@ -1,7 +1,19 @@
-import { app, shell, BrowserWindow } from 'electron'
+import { app, shell, BrowserWindow, ipcMain } from 'electron'
 import { join } from 'path'
 import { electronApp, optimizer, is } from '@electron-toolkit/utils'
+import express from 'express'
+import { IpcServer } from 'ipc-express'
+import routes from './routes'
 import icon from '../../resources/icon.png?asset'
+import { initializePaths } from './file'
+
+const expressServer = express()
+const ipcServer = new IpcServer(ipcMain)
+expressServer.use(express.json())
+expressServer.use('/api', routes)
+ipcServer.listen(expressServer)
+
+initializePaths()
 
 function createWindow(): void {
   // Create the browser window.

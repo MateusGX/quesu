@@ -21,18 +21,15 @@ export const EditorScreen: React.FC = () => {
     <div className="tw-h-screen tw-w-full tw-typography">
       <Editor
         autofocus
+        placeholder="Start writing your document here..."
+        defaultBlock='paragraph'
         tools={{
           checklist: EditorChecklist,
           delimiter: EditorDelimiter,
           inlineCode: EditorInlineCode,
           list: EditorList,
           marker: EditorMarker,
-          paragraph: {
-            class: EditorParagraph,
-            config: {
-              placeholder: 'Enter a text'
-            }
-          },
+          paragraph: EditorParagraph,
           header: {
             class: EditorHeader,
             config: {
