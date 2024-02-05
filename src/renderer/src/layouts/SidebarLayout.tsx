@@ -1,4 +1,4 @@
-import { AccountSwitcher } from '@renderer/components/quesu/account-switcher'
+import { CollectionSwitcher } from '@renderer/components/quesu/collection-switcher'
 import { Sidebar } from '@renderer/components/quesu/sidebar'
 import { Separator } from '@renderer/components/ui/separator'
 import {
@@ -30,15 +30,7 @@ export const SidebarLayout: React.FC<Props> = ({}) => {
       <div className="tw-h-full tw-flex">
         <div className="tw-h-full tw-border-r">
           <div className="tw-flex tw-h-[52px] tw-items-center tw-justify-center">
-            <AccountSwitcher
-              collections={[
-                {
-                  id: '0000-000',
-                  name: 'Mateus Collection',
-                  icon: Folder
-                }
-              ]}
-            />
+            <CollectionSwitcher />
           </div>
           <Separator />
           <Sidebar

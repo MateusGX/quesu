@@ -6,14 +6,21 @@ import { IpcServer } from 'ipc-express'
 import routes from './routes'
 import icon from '../../resources/icon.png?asset'
 import { initializePaths } from './file'
-
-const expressServer = express()
-const ipcServer = new IpcServer(ipcMain)
-expressServer.use(express.json())
-expressServer.use('/api', routes)
-ipcServer.listen(expressServer)
+import { database } from './database'
+import bodyParser from 'body-parser'
 
 initializePaths()
+const expressServer = express()
+const ipcServer = new IpcServer(ipcMain)
+expressServer.use(bodyParser.urlencoded({ extended: false }))
+expressServer.use(bodyParser.json())
+expressServer.use((req, res, next) => {
+  console.log(`[REQUEST] ${req.url}`)
+  next()
+})
+expressServer.use('/api', routes)
+ipcServer.listen(expressServer)
+database.sync()
 
 function createWindow(): void {
   // Create the browser window.

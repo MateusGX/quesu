@@ -26,6 +26,9 @@ import {
 import React from 'react'
 import { createContext, useContext, useEffect, useState } from 'react'
 import { useTheme } from './ThemeContext'
+import { useApi } from './ApiContext'
+import { useDialog } from './DialogContext'
+import { CreateCollectionDialog } from '@renderer/components/dialogs/create-collection'
 
 type CommandProviderProps = {
   children: React.ReactNode
@@ -41,17 +44,20 @@ export function CommandProvider({ children, ...props }: CommandProviderProps) {
   const [openMain, setOpenMain] = React.useState(false)
   const [openPages, setOpenPages] = React.useState(false)
   const { toggleTheme, theme } = useTheme()
+  const { ipc } = useApi()
+  const { openDialog } = useDialog()
+
   React.useEffect(() => {
     const down = (e: KeyboardEvent) => {
-      if (e.key === 'k' && (e.metaKey || e.ctrlKey)) {
+      if (e.key.toLowerCase() === 'k' && (e.metaKey || e.ctrlKey)) {
         e.preventDefault()
         setOpenPages(false)
         setOpenMain((open) => !open)
-      } else if (e.key === 'p' && (e.metaKey || e.ctrlKey)) {
+      } else if (e.key.toLowerCase() === 'p' && (e.metaKey || e.ctrlKey)) {
         e.preventDefault()
         setOpenMain(false)
         setOpenPages((open) => !open)
-      } else if (e.key === 't' && (e.metaKey || e.ctrlKey)) {
+      } else if (e.key.toLowerCase() === 't' && (e.metaKey || e.ctrlKey)) {
         e.preventDefault()
         toggleTheme()
       }
@@ -69,6 +75,22 @@ export function CommandProvider({ children, ...props }: CommandProviderProps) {
         <CommandList>
           <CommandEmpty>No results found.</CommandEmpty>
           <CommandGroup heading="Quick Actions">
+            <CommandItem
+              onSelect={() => {
+                console.log('Teste api')
+                ipc
+                  .get('/api/collections', {})
+                  .then((res) => {
+                    console.log(res)
+                  })
+                  .catch((err) => {
+                    console.error(err)
+                  })
+              }}
+            >
+              <Files className="mr-2 h-4 w-4" />
+              Teste api
+            </CommandItem>
             <CommandItem
               onSelect={() => {
                 toggleTheme()
@@ -107,7 +129,9 @@ export function CommandProvider({ children, ...props }: CommandProviderProps) {
             <CommandItem
               onSelect={() => {
                 setOpenMain(false)
-                setOpenPages(true)
+                openDialog({
+                  content: <CreateCollectionDialog />
+                })
               }}
             >
               <Folder className="mr-2 h-4 w-4" />
