@@ -40,18 +40,6 @@ export const SidebarLayout: React.FC<Props> = ({}) => {
                 label: '128',
                 icon: File,
                 variant: 'default'
-              },
-              {
-                title: 'Page Actions',
-                label: '128',
-                icon: FileCode,
-                variant: 'ghost'
-              },
-              {
-                title: 'Page Settings',
-                label: '128',
-                icon: FileCog,
-                variant: 'ghost'
               }
             ]}
           />
@@ -73,12 +61,6 @@ export const SidebarLayout: React.FC<Props> = ({}) => {
                 title: 'Custom Blocks',
                 label: '',
                 icon: Shapes,
-                variant: 'ghost'
-              },
-              {
-                title: 'Extensions',
-                label: '23',
-                icon: Blocks,
                 variant: 'ghost'
               },
               {

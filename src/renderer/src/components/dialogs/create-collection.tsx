@@ -52,18 +52,18 @@ export const CreateCollectionDialog: React.FC = () => {
 
   function onSubmit(values: z.infer<typeof formSchema>) {
     setLoading(true)
-    // ipc
-    //   .post('/api/collections', {
-    //     name: values.collectionName,
-    //     icon: values.collectionIcon
-    //   })
-    //   .then((collection) => {
-    //     emitCloseDialogs()
-    //     emitCollectionCreatedEvent()
-    //   })
-    //   .finally(() => {
-    //     setLoading(false)
-    //   })
+    ipc
+      .post('/api/collections', {
+        name: values.collectionName,
+        icon: values.collectionIcon
+      })
+      .then((collection) => {
+        emitCloseDialogs()
+        emitCollectionCreatedEvent()
+      })
+      .finally(() => {
+        setLoading(false)
+      })
   }
 
   return (
